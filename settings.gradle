@@ -1,5 +1,8 @@
 rootProject.name = 'gedcom-tools'
 
+include 'lib'
+include 'ansel'
+
 include 'attach'
 include 'check-dups'
 include 'check-len'
