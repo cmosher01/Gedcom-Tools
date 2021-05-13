@@ -1,9 +1,6 @@
-apply plugin: 'java'
-apply plugin: 'application'
-
-group 'nu.mine.mosher.gedcom'
-version '1.0.0-SNAPSHOT'
-mainClassName = 'nu.mine.mosher.gedcom.GedcomFixDate'
+plugins {
+    id 'application'
+}
 
 repositories {
     mavenCentral()
@@ -19,6 +16,19 @@ dependencies {
     testRuntimeOnly group: "org.junit.jupiter", name: "junit-jupiter-engine", version: 'latest.release'
 }
 
+application {
+    mainClass = 'nu.mine.mosher.gedcom.GedcomFixDate'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of 11
+        vendor = JvmVendorSpec.AMAZON
+    }
+}
+
 test {
     useJUnitPlatform()
 }
+
+version = '1.0.0-SNAPSHOT'

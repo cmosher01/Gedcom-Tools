@@ -1,34 +1,39 @@
+plugins {
+    id 'application'
+}
+
 repositories {
     mavenCentral()
     jcenter()
 }
 
-apply plugin: 'java'
-apply plugin: 'application'
-
 dependencies {
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: 'latest.release'
-    implementation group: 'com.google.guava', name: 'guava', version: 'latest.release'
     implementation group: 'nu.mine.mosher.gedcom', name: 'gedcom-lib', version: 'latest.integration'
+    implementation group: 'com.google.guava', name: 'guava', version: 'latest.release'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: 'latest.release'
 
-
+    runtimeOnly group: 'ch.qos.logback', name: 'logback-classic', version: 'latest.release'
 
     testImplementation group: 'com.google.truth', name: 'truth', version: 'latest.release'
     testImplementation group: 'com.google.truth.extensions', name: 'truth-java8-extension', version: 'latest.release'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: 'latest.release'
 
-    runtimeOnly group: 'ch.qos.logback', name: 'logback-classic', version: 'latest.release'
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: 'latest.release'
 }
 
-group = 'nu.mine.mosher.gedcom'
-version = '1.0.0-SNAPSHOT'
-mainClassName = 'nu.mine.mosher.gedcom.GedcomPedigree'
+application {
+    mainClass = 'nu.mine.mosher.gedcom.GedcomPedigree'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of 11
+        vendor = JvmVendorSpec.AMAZON
+    }
+}
 
 test {
     useJUnitPlatform()
-    testLogging {
-        events "passed", "skipped", "failed"
-        showStandardStreams = true
-    }
 }
+
+version = '1.0.0-SNAPSHOT'

@@ -1,9 +1,6 @@
-apply plugin: 'java'
-apply plugin: 'application'
-
-group 'nu.mine.mosher.gedcom'
-version '1.0.0-SNAPSHOT'
-mainClassName = 'nu.mine.mosher.gedcom.GedcomSelect'
+plugins {
+    id 'application'
+}
 
 repositories {
     mavenCentral()
@@ -14,3 +11,16 @@ dependencies {
     implementation group: 'nu.mine.mosher.gedcom', name: 'gedcom-lib', version: 'latest.integration'
     implementation group: 'nu.mine.mosher.mopper', name: 'mopper', version: 'latest.integration'
 }
+
+application {
+    mainClass = 'nu.mine.mosher.gedcom.GedcomSelect'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of 11
+        vendor = JvmVendorSpec.AMAZON
+    }
+}
+
+version = '1.0.0-SNAPSHOT'

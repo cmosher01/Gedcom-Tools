@@ -1,12 +1,5 @@
-apply plugin: 'java'
-apply plugin: 'application'
-
-group 'nu.mine.mosher.gedcom'
-version '1.0.0-SNAPSHOT'
-mainClassName = 'nu.mine.mosher.gedcom.GedcomNoteGc'
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
+plugins {
+    id 'application'
 }
 
 repositories {
@@ -17,3 +10,16 @@ repositories {
 dependencies {
     implementation group: 'nu.mine.mosher.gedcom', name: 'gedcom-lib', version: 'latest.integration'
 }
+
+application {
+    mainClass = 'nu.mine.mosher.gedcom.GedcomNoteGc'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of 11
+        vendor = JvmVendorSpec.AMAZON
+    }
+}
+
+version = '1.0.0-SNAPSHOT'
