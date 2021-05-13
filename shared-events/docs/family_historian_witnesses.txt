@@ -1,0 +1,110 @@
+This is the format Family Historian uses to store Principal and Witnesses in shared events:
+
+------------------------------------------
+0 @I1@ INDI
+    1 CENS
+        2 DATE 1900
+        2 PLAC Peopleville, USA
+        2 _SHAR @I1@
+            3 ROLE Head of household
+            3 NOTE This is the head
+        2 _SHAR @I2@
+            3 ROLE wife of head
+            3 NOTE This is the wife
+        2 _SHAR @I3@
+            3 ROLE son of head
+            3 NOTE This is the eldest child, a son
+
+0 @I2@ INDI
+
+0 @I3@ INDI
+------------------------------------------
+
+
+
+So, if we start with a normal GEDCOM like this:
+
+------------------------------------------
+0 @I1@ INDI
+    1 CENS
+        2 DATE 1900
+        2 PLAC Peopleville, USA
+
+0 @I2@ INDI
+    1 CENS
+        2 DATE 1900
+        2 PLAC Peopleville, USA
+
+0 @I3@ INDI
+    1 CENS
+        2 DATE 1900
+        2 PLAC Peopleville, USA
+------------------------------------------
+
+
+
+We can tag is such as follows. My proposed intermediate format.
+Does not lose information from Family Historian, and
+allows other genealogy programs to show the events.
+The _UID marks the events as being the same event, to be shared.
+And we add _SHAR (with option ROLE and NOTE) in FH format, along
+with a _PRNC record to identify the principal individual.
+
+---------------------------------------------
+0 @I1@ INDI
+    1 CENS
+        2 DATE 1900
+        2 PLAC Peopleville, USA
+        2 _UID eae12436-e419-4c0a-9a9a-0856e92962b5
+        2 _PRNC
+        2 _SHAR @I1@
+            3 ROLE Head of household
+            3 NOTE This is the head
+
+0 @I2@ INDI
+    1 CENS
+        2 DATE 1900
+        2 PLAC Peopleville, USA
+        2 _UID eae12436-e419-4c0a-9a9a-0856e92962b5
+        2 _SHAR @I2@
+            3 ROLE wife of head
+            3 NOTE This is the wife
+
+0 @I3@ INDI
+    1 CENS
+        2 DATE 1900
+        2 PLAC Peopleville, USA
+        2 _UID eae12436-e419-4c0a-9a9a-0856e92962b5
+        2 _SHAR @I3@
+            3 ROLE son of head
+            3 NOTE This is the eldest child, a son
+---------------------------------------------
+
+
+
+This is easily converted to FH format.
+(_UID will show up as an UDF in FH).
+Only the principal (_PRNC) will have the attributes (such as
+DATE and PLAC) preserved when converting to Family Historian format.
+And it can be converted back to my intermediate format, as well.
+
+---------------------------------------------
+0 @I1@ INDI
+    1 CENS
+        2 DATE 1900
+        2 PLAC Peopleville, USA
+        2 _UID eae12436-e419-4c0a-9a9a-0856e92962b5
+        2 _SHAR @I1@
+            3 ROLE Head of household
+            3 NOTE This is the head
+        2 _SHAR @I2@
+            3 ROLE wife of head
+            3 NOTE This is the wife
+        2 _SHAR @I3@
+            3 ROLE son of head
+            3 NOTE This is the eldest child, a son
+
+0 @I2@ INDI
+
+0 @I3@ INDI
+---------------------------------------------

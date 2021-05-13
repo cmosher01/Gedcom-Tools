@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+group 'nu.mine.mosher.gedcom'
+version '1.0.0-SNAPSHOT'
+mainClassName = 'nu.mine.mosher.gedcom.GedcomRefnSkel'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation group: 'nu.mine.mosher.gedcom', name: 'gedcom-lib', version: 'latest.integration'
+}
