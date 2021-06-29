@@ -1,6 +1,6 @@
 rootProject.name = 'gedcom-tools'
 
-include 'lib'
+include 'gedcom-lib'
 include 'ansel'
 
 include 'attach'
@@ -31,3 +31,5 @@ include 'tagfromnote'
 include 'uid'
 include 'unftmevent'
 include 'unnote'
+
+include 'mopper' // archived version. TODO replace with Gnopt

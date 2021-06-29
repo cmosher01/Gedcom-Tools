@@ -9,7 +9,7 @@ repositories {
 
 dependencies {
     implementation group: 'nu.mine.mosher.gedcom', name: 'gedcom-lib', version: 'latest.integration'
-    implementation group: 'nu.mine.mosher.mopper', name: 'mopper', version: 'latest.integration'
+    implementation project(':mopper')
     implementation group: 'com.google.guava', name: 'guava', version: 'latest.release'
 }
 
