@@ -20,13 +20,13 @@ public class AsciiGraphicsTest {
 
     @Test
     void nominal() {
-        uut.hString(xy(valueOf(2), valueOf(3)), grs("López"));
+        uut.hString(xy(valueOf(2), valueOf(3)), grs("Lo\u81CCpez"));
         show(uut);
     }
 
     @Test
     void at_0_0() {
-        uut.hString(ORIGIN, grs("Pazmiño"));
+        uut.hString(ORIGIN, grs("Pazmin\u83CCo"));
         show(uut);
     }
 
