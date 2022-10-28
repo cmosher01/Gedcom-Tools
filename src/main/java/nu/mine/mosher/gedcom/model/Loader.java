@@ -33,7 +33,7 @@ public class Loader {
     // hardcoded source for Family Tree links (at FamilySearch)
     private static final Source sourceLdsFamilyTree = new Source(
         "74a586b6-6786-4ba1-859c-8e317fec4dde",
-        "The Church of Jesus Christ of Latter‐day Saints [LDS]",
+        "The Church of Jesus Christ of Latter\u2010day Saints [LDS]",
         "Family Tree",
         "https://www.familysearch.org",
         "");
@@ -515,8 +515,8 @@ public class Loader {
 
     private String buildLdsFamilyTreeLink(final String fsid) {
         return "<bibl>" +
-            "<author>The Church of Jesus Christ of Latter‐day Saints [LDS]</author>, " +
-            "“<title level=\"u\">Family Tree</title>”, " +
+            "<author>The Church of Jesus Christ of Latter\u2010day Saints [LDS]</author>, " +
+            "\u201C<title level=\"u\">Family Tree</title>\u201D, " +
             "database, " +
             "<title level=\"m\">FamilySearch</title> " +
             "(<ref target=\"https://www.familysearch.org/tree/person/" +

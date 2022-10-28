@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LoaderTest {
     @Test
     public void sortableName() {
-        final String actual = Person.buildNameForAlphaSort("Christopher A. /D'Mosher y López/, Junior");
-        assertEquals("DMOSHER\u00a0Y\u00a0LÓPEZ, CHRISTOPHER A JUNIOR", actual);
+        final String actual = Person.buildNameForAlphaSort("Christopher A. /D'Mosher y L\u00F3pez/, Junior");
+        assertEquals("DMOSHER\u00a0Y\u00a0L\u00D3PEZ, CHRISTOPHER A JUNIOR", actual);
     }
 }
