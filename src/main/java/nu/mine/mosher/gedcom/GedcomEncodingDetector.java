@@ -70,7 +70,7 @@ public class GedcomEncodingDetector {
     }
 
     private boolean isDetectionReliable(final Charset detected) {
-        return detected.name().contains("UTF");
+        return detected.name().equals("US-ASCII") || detected.name().contains("UTF");
     }
 
     private static Optional<Charset> detectCharsetDefault(final BufferedInputStream gedcomStream) throws IOException {

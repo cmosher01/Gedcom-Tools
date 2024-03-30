@@ -1,10 +1,10 @@
 plugins {
     id 'ca.coglinc2.javacc' version '3.0.0'
-    id 'org.beryx.runtime' version '1.12.7'
+    id 'org.beryx.runtime' version '1.13.1'
     id 'idea'
 }
 
-version = '2.0.0'
+version = '2.0.1'
 
 group = 'nu.mine.mosher.gedcom'
 
@@ -41,7 +41,7 @@ test {
     useJUnitPlatform()
 }
 
-compileJavacc.outputDirectory = file(project.buildDir.absolutePath + '/generated/javacc/nu/mine/mosher/gedcom/date/parser')
+compileJavacc.outputDirectory = file(project.layout.buildDirectory.getAsFile().get().absolutePath + '/generated/javacc/nu/mine/mosher/gedcom/date/parser')
 sourceSets.main.java.srcDir compileJavacc.outputDirectory
 idea.module.generatedSourceDirs += compileJavacc.outputDirectory
 
