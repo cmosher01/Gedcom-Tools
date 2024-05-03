@@ -2,6 +2,7 @@ package nu.mine.mosher.gedcom;
 
 import nu.mine.mosher.collection.TreeNode;
 
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
@@ -21,6 +22,13 @@ import static nu.mine.mosher.logging.Jul.log;
  */
 public class GedcomMinimal {
     private static final String SUMB_ID = "M0";
+
+    public static void main(final String... args) throws IOException {
+        final GedcomTree tree = minimal(StandardCharsets.UTF_8);
+        try (final BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(FileDescriptor.out))) {
+            Gedcom.writeFile(tree, out);
+        }
+    }
 
     public static GedcomTree minimal(Charset charsetForce) {
         final GedcomTree tree = new GedcomTree();

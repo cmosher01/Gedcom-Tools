@@ -19,6 +19,7 @@ public class GedcomTools {
         "Extract",
         "FixDate",
         "FixFtmPubl",
+        "Minimal",
         "Notary",
         "NoteGc",
         "Pedigree",
